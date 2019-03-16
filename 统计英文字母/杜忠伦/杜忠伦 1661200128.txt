@@ -1,0 +1,25 @@
+package lun;
+
+import java.util.Scanner;
+
+public class lun {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("ÇëÊäÈë×Ö·û´®");
+		String str = sc.nextLine();
+		char chs[] = str.toCharArray();
+
+		for (char ch = 'A'; ch < 'Z'; ch++) {
+			int count = 0;
+			for (int i = 0; i < chs.length; i++)
+				if (ch == chs[i]) {
+					count++;
+				}
+			if (count != 0) {
+				System.out.println(ch + "ÓĞ" + count + "¸ö");
+			}
+		}
+
+	}
+}

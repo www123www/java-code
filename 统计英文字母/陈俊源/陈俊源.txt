@@ -1,0 +1,26 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class demo {
+    public static void main(String[] args) {
+        Scanner wsq = new Scanner(System.in);
+        System.out.println("请输入任意一串字符串");
+        String s = wsq.next();
+        char [] arr = s.toCharArray();
+    
+        HashMap<Character, Integer> yy = new HashMap<>();
+       
+        for(char c : arr){
+           
+            if(!yy.containsKey(c)){   
+                yy.put(c, 1);
+            }else{
+                yy.put(c,yy.get(c) + 1);
+            }
+        }
+       
+        for (Character key : yy.keySet()) {                 //yy.keySet() : 代表所有键的集合
+            System.out.println(key + "出现了" + yy.get(key)+ "次");    //yy.get(key) : 根据键获取值
+        }
+    }
+}

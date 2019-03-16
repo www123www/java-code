@@ -1,0 +1,90 @@
+package Jh;
+
+import java.util.Scanner;
+
+public class Tj {
+
+	public static void main(String[] args) {
+		
+		Scanner reader = new Scanner(System.in);
+		System.out.println("请输入四个字母然后按回车键");
+		String text1 = reader.next();
+		String text2 = reader.next();
+		String text3 = reader.next();
+		String text4 = reader.next();
+		int i = 0;
+		int j = 0;
+		int k = 0;
+		int l = 0;
+		if(text1.equals(text2)){
+			i++;
+			
+		}
+		
+		if(text1.equals(text3)){
+			i++;
+			
+		}
+				
+		if(text1.equals(text4)){
+			i++;
+			
+		}
+		
+		
+		
+		if(text2.equals(text1)){
+			k++;
+			
+		}
+		
+		if(text2.equals(text3)){
+			k++;
+			
+		}
+		
+		if(text2.equals(text4)){
+			k++;
+			
+		}
+		
+		
+		if(text3.equals(text1)){
+			j++;
+			
+		}
+		
+		if(text3.equals(text2)){
+			j++;
+			
+		}
+		
+		if(text3.equals(text4)){
+			j++;
+			
+		}
+		
+		
+		
+		if(text4.equals(text1)){
+			l++;
+			
+		}
+		
+		if(text4.equals(text2)){
+			l++;
+			
+		}
+		
+		if(text4.equals(text3)){
+			l++;
+			
+		}
+		
+		System.out.println(i);
+		System.out.println(k);
+		System.out.println(j);
+		System.out.println(l);
+	}
+
+}

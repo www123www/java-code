@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class CountStrings {
+	public static void main(String[] args) {
+        Scanner read=new Scanner(System.in);  
+		String str = read.next();  
+       
+        int count = 0;//统计单个字符出现的次数
+        int n=str.length();
+        for (int i = 0; i <n; i++) {
+        	 int old_length = str.length();
+        	 if(old_length==0)break;
+        	 
+        	 char c = str.charAt(0);//定义一个字符等于字符串第一个字符.每次统计完会将统计过的字符替换掉.   
+        	 String new_str=str.replaceAll(c+"", "");//定义一个新字符串将出现的字符
+            
+        	 int new_length=new_str.length();
+          
+        	 count = old_length - new_length;      
+             str=new_str;
+            System.out.print( c  +":"+ count+" " );
+        }
+        
+        
+    }
+
+
+}

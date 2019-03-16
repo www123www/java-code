@@ -1,0 +1,24 @@
+import java.util.;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+class Demo1{
+    public static void main(String args[]){
+
+        Scanner sc = new Scanner(System.in);
+        String pattern = ^[A-Za-z]+$;
+        String str=;
+        while (sc.hasNext()) {
+            str = sc.next();
+            if(!str.matches(pattern))
+            {
+                System.out.println(输入中含有非字母字符 请重新输入);
+            }
+            else
+            {
+                System.out.println(共有+str.length()+个英文字母);
+                break;
+            }
+        }
+    }
+}

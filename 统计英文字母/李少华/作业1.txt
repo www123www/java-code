@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class run {
+    public static void main (String[] args){
+        Scanner nn=new Scanner(System.in);
+        String ss=nn.next();
+        char ch;
+       int[] num=new int[26];
+        for(int iz=0;iz <ss.length();iz++)
+        {
+            num[ss.charAt(iz) - 'a']++;
+        }
+        for(int iz = 0;iz < 26;iz++){
+            if(num[iz] > 0){
+                System.out.println((char)(iz + 'a') +" " + num[iz] + "¸ö");
+            }
+        }
+    }
+
+}
