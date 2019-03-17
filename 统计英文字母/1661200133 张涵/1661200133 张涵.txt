@@ -1,13 +1,13 @@
-package test;
+ï»¿package test;
 
 import java.util.Scanner;
 
 public class Test {
-	//ÊäÈëÒ»ĞĞÊı¾İ£¬Í³¼ÆĞ¡Ğ´×ÖÄ¸µÄ¸öÊı
+	//è¾“å…¥ä¸€è¡Œæ•°æ®ï¼Œç»Ÿè®¡å°å†™å­—æ¯çš„ä¸ªæ•°
 	public static void main(String[] args) {
 
 		Scanner scan = new Scanner(System.in);
-		System.out.println("ÊäÈëÒ»ĞĞÊı¾İ£º");
+		System.out.println("è¾“å…¥ä¸€è¡Œæ•°æ®ï¼š");
 		String str = scan.nextLine();
 		String str = "";
 
@@ -17,8 +17,8 @@ public class Test {
 			}
 		}
 
-		System.out.println("Ğ¡Ğ´×ÖÄ¸µÄ¸öÊı:" + str.length());
-		System.out.println("Ğ¡Ğ´×ÖÄ¸µÄÄÚÈİ" + str);
+		System.out.println("å°å†™å­—æ¯çš„ä¸ªæ•°:" + str.length());
+		System.out.println("å°å†™å­—æ¯çš„å†…å®¹" + str);
 
 		for (int letter = (int)('a'); letter <= (int)('z'); letter++) {
 			int count = 0;
@@ -28,7 +28,7 @@ public class Test {
 				}
 			}
 			if (count != 0) {
-				System.out.println((char)letter + "ÓĞ" + count + "¸ö");
+				System.out.println((char)letter + "æœ‰" + count + "ä¸ª");
 			}
 		}
 	}
