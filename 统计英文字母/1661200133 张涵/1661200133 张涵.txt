@@ -1,0 +1,35 @@
+package test;
+
+import java.util.Scanner;
+
+public class Test {
+	//输入一行数据，统计小写字母的个数
+	public static void main(String[] args) {
+
+		Scanner scan = new Scanner(System.in);
+		System.out.println("输入一行数据：");
+		String str = scan.nextLine();
+		String str = "";
+
+		for (int i = 0; i < str.length(); i++) {
+			if ((str.charAt(i) >= 'a' && str.charAt(i) <= 'z')) {
+				str += str.charAt(i);
+			}
+		}
+
+		System.out.println("小写字母的个数:" + str.length());
+		System.out.println("小写字母的内容" + str);
+
+		for (int letter = (int)('a'); letter <= (int)('z'); letter++) {
+			int count = 0;
+			for (int j = 0; j < str.length(); j++) {
+				if (str.charAt(j) == letter) {
+					count++;
+				}
+			}
+			if (count != 0) {
+				System.out.println((char)letter + "有" + count + "个");
+			}
+		}
+	}
+}
