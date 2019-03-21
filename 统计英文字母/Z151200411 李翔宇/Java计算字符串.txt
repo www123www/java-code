@@ -1,0 +1,25 @@
+﻿package text;
+import java.util.Scanner;
+public class work
+{
+	public static void main(String[] args)
+	{
+		Scanner intput  = new Scanner (System.in);
+		String string = intput.nextLine();
+		char chs[]=string.toCharArray();//转换成char数组
+		int count=0;
+		System.out.println("字符串："+string+"中小写字母有：");
+		for(char ch='a';ch<='z';ch++)
+		{
+			count=0;//计数器
+			for(int i=0;i<chs.length;i++)
+			{
+				if(ch==chs[i])
+					count++;
+			}
+			if(count!=0)
+				System.out.println("字符中"+ch+"有"+count+"个");
+		}
+	}
+}
+
