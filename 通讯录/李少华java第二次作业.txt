@@ -1,0 +1,94 @@
+import java.util.Scanner;
+
+public class demo {
+    private static final String NULL = null;
+
+    public demo() {
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        gbook[] book = new gbook[2];
+        byte i = 0;
+
+        while(true) {
+            study:
+            while(i != -1) {
+                System.out.println("1.增加通讯录\n2.查询通讯录\n请选择：");
+                switch(sc.nextInt()) {
+                    case 0:
+                        i = -1;
+                        break;
+                    case 1:
+                        int s = 0;
+
+                        while(true) {
+                            if (s >= book.length) {
+                                continue study;
+                            }
+
+                            System.out.println("请输入第" + (s + 1) + "个用户：");
+                            book[s] = new gbook();
+                            System.out.print("姓名：");
+                            book[s].name = sc.next();
+                            System.out.print("手机号：");
+                            book[s].number = sc.nextInt();
+                            ++s;
+                        }
+                    case 2:
+                        System.out.println("请输入查询的用户姓名：");
+                        String name = sc.next();
+                        boolean z = true;
+
+                        for(int y = 0; y < book.length && book[y] != null; ++y) {
+                            if (book[y].getName().equals(name)) {
+                                System.out.println("用户姓名：" + book[y].name + "\n用户电话：" + book[y].number);
+                                z = true;
+                                break;
+                            }
+
+                            z = false;
+                        }
+
+                        if (!z) {
+                            System.out.println("用户不存在");
+                        }
+                        break;
+                    default:
+                        i = -1;
+                        System.out.println("选项有误,退出系统！");
+                }
+            }
+
+            return;
+        }
+    }
+}
+
+
+
+
+
+class gbook {
+    int number;
+    String name;
+
+    gbook() {
+    }
+
+    public int getNumber() {
+        return this.number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
