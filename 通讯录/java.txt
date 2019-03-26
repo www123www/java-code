@@ -1,0 +1,41 @@
+import java.util.*;
+class Student{
+	String name;
+	int number;
+}
+public class Tongxunlu {
+    public static void main(String []args) {
+       Scanner sc = new Scanner(System.in);
+	   Student stu[] = new Student[10];
+		System.out.println("请输入要添加的姓名和电话：");
+		for(int i = 0;i<stu.length;i++){
+			stu[i] = new Student();
+			stu[i].name = s.next();
+			stu[i].number = s.nextInt();
+		}
+		
+		for(int i = 0;i<stu.length;i++){
+			System.out.println("姓名："+stu[i].name+"电话："+stu[i].number);
+		}
+		
+		System.out.println("请输入要查询的姓名：");
+		String b = s.next();
+		boolean d = false;
+		
+		for(int i = 0;i<stu.length;i++){
+			if(b.equals(stu[i].name)){
+				System.out.println("姓名："+stu[i].name+"电话："+stu[i].number);
+				d = false;
+				break;
+			}
+			else{
+				d = true;
+			}
+		}
+		
+		if(d == true){
+			System.out.println("未查找到联系人！");
+		}
+	   
+    }
+}
