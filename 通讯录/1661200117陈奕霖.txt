@@ -1,0 +1,39 @@
+package LL;
+import java.util.Arrays;
+import java.util.Scanner;
+class Student
+{
+    int hm;
+    String name;
+}
+public class kk
+{
+    public static void main(String[] args)
+    Scanner sr=new Scanner(System.in);
+        System.out.print("请输入要创建的通讯录人数：");
+    int num=sr.nextInt();
+    Student per[]=new Student[num];
+        for(int i=0;i<num;i++)
+    {
+        per[i]=new Student();
+        System.out.print("请输入姓名：");
+        per[i].name=sr.next();
+        System.out.print("请输入电话号码");
+        per[i].hm=sr.nextInt();
+    }
+    System.out.print("请输入查询的姓名：");
+    String test=sr.next();
+    int d=0;
+        for (int i=0;i<num;i++)
+    {
+        if(Arrays.equals(test.toCharArray(),per[i].name.toCharArray()))
+        {
+            System.out.println(per[i].hm);
+            d++;
+        }
+    }
+        if(d==0)
+    {
+        System.out.println("查询没有此人");
+    }
+}
