@@ -1,0 +1,59 @@
+﻿package 通讯录;
+
+	import java.util.Scanner;
+	class phone{
+			int number;
+			String name;
+			String temp;
+			int a = -1;
+
+			phone ph[] = new phone[3];
+			Scanner input = new Scanner(System.in);
+			void inset(){
+				for (int i = 0; i < ph.length; i++){
+					ph[i] = new phone();
+					System.out.println("输入名字");
+					ph[i].name = input.next();
+					System.out.println("输入电话");
+					ph[i].number = input.nextInt();		
+				}
+			}
+			void out(){
+				for (int i = 0; i <ph.length; i++)
+				{
+					System.out.println("名字"+ph[i].name);
+					System.out.println("电话"+ph[i].number);
+				}
+				
+			}
+			void show()
+			{
+				System.out.println("输入需要查询的名字");
+				temp = input.next();
+				for(int i = 0; i < ph.length; i++)
+				{
+					if (temp.equals(ph[i].name))
+						a = i;			
+				}
+				if(a == -1)
+				{
+					System.out.println("NO");
+				
+				}
+				else{
+				System.out.println("查询人的名字"+ph[a].name);
+				System.out.println("查询人的电话"+ph[a].number);
+				}
+			}
+	}
+
+public class Ph{
+		public static void main(String args[]){
+			phone p = new phone();
+			p.inset();
+			p.out();
+			p.show();
+		}
+	}
+
+
