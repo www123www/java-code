@@ -1,0 +1,75 @@
+import java.util.*;
+
+class Telp{
+	static boolean i=true;
+	String[] name=new String[9];
+	long[] number=new long[9];
+	
+	public void display()
+	{
+	System.out.println("--------------------通讯录----------------");
+	System.out.println("\t1.新增  \t2.查找");
+
+	}
+
+
+public void select(){
+	while(i){
+		i=true;
+		System.out.println("请选择功能：");
+		Scanner input=new Scanner(System.in);
+		int select=input.nextInt();
+		switch(select){
+		case 1:
+			System.out.println("添加联系人");
+			add();break;
+		case 2:
+			System.out.println("查找联系人");
+			nameRead();break;
+		}
+	}
+}
+//查询
+public void nameRead(){
+	System.out.println("请输入要查找的联系人：");
+	Scanner input=new Scanner(System.in);
+	String inName=input.next();
+	boolean flag=false;
+	for(int i=0;i<name.length;i++){
+		if(inName.equals(name[i])){
+			System.out.println("姓名："+name[i]+"手机号"+number[i]);
+			flag=false;
+			break;
+		}
+		else{
+			flag=true;
+		}
+	}
+	if(flag){
+		System.out.println("没有找到该联系人");
+	}
+}
+//怎加
+public void add(){
+	int num=0;
+	for(int i=0;i<name.length;i++){
+		if(name[i]!=null)
+		{
+			num++;
+		}
+	}
+	System.out.println("姓名：");
+	Scanner input=new Scanner(System.in);
+	name[num]=input.next();
+	System.out.println("手机号：");
+	number[num]=input.nextInt();
+	System.out.println("姓名："+name[num]+"\n"+"手机号："+number[num]);
+	System.out.println("\n"+"添加成功");
+}
+}
+public class number {
+	public static void main(String args[]){
+		Telp t=new Telp();
+		t.display();
+		t.select();
+	}
