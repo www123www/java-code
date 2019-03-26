@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+class CO{
+	int nmb;
+	String nme;
+	public int getNumber() {
+		return nmb;
+	}
+	public void setNumber(int number) {
+		this.nmb = number;
+	}
+	public String getName() {
+		return nme;
+	}
+	public void setName(String name) {
+		this.nme = name;
+	}
+}
+public class AddressList {
+		private static final String NULL = null;
+
+		public static void main (String []args) {
+			Scanner sc = new Scanner(System.in);
+			CO book[] = new CO[3];
+			int i=0;
+			while(i!=-1){
+				
+				System.out.println("1.增加通讯录\n"+"2.查询通讯录"+"\n请选择：");
+				
+				switch (sc.nextInt()) {
+				case 1:
+					for(int s=0;s<book.length;s++){
+						System.out.println("请输入第"+(s+1)+"个用户：");
+						book[s] = new CO();
+						System.out.print("姓名：");
+						book[s].nme = sc.next();
+						System.out.print("手机号：");
+						book[s].nmb = sc.nextInt();
+					}
+					break;
+				case 2:
+					System.out.println("请输入查询的用户姓名：");
+					String name = sc.next();
+					int z=1;
+					
+					for(int s=0;s<book.length&&book[s]!=null;s++){
+						if(book[s].getName().equals(name)){
+							System.out.println("用户姓名："+book[s].nme+"\n用户电话："+book[s].nmb);
+							z=1;
+							break;
+						}else{
+							z=0;
+						}
+					}
+					if(z==0){
+						System.out.println("没有查找到该用户！");
+						System.out.println("请重新输入！");
+					}
+					break;
+				case 0:
+					i=-1;
+					break;
+				default:
+					i=-1;
+					System.out.println("选项有误！");
+					System.out.println("退出系统！");
+					break;
+				}
+			}
+		}
+	}
