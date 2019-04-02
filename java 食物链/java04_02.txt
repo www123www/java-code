@@ -1,0 +1,148 @@
+package class04_02;
+
+import java.util.Random;
+
+class Animal{
+	int x,y,lv;
+	public void remove(int x, int y) {
+		if(this.x+x>0&&this.x+x<=10&&this.y+y>0&&this.y+y<=10){
+			this.x +=x;
+			this.y +=y;
+		}else{
+			System.out.println("×²Ç½ÁË£¡");
+		}
+	}
+}
+class Wolf extends Animal{
+	
+	Wolf(int x, int y) {
+		this.x = x;
+		this.y = y;
+		this.lv = 2;
+	}
+	
+	@Override
+	public void remove(int x, int y) {
+		if(this.x+x>=0&&this.x+x<=2&&this.y+y>=0&&this.y+y<=2){
+			this.x +=x;
+			this.y +=y;
+			location();
+		}else{
+			System.out.println("ÀÇ×²Ç½ÁË£¡");
+		}
+	}
+	
+	public void location(){
+		System.out.println("ÀÇ\nx:"+this.x+"\ty:"+this.y);
+	}
+}
+
+class Lion extends Animal{
+	
+	Lion(int x, int y) {
+		this.x = x;
+		this.y = y;
+		this.lv = 3;
+	}
+	@Override
+	public void remove(int x, int y) {
+		if(this.x+x>=0&&this.x+x<=2&&this.y+y>=0&&this.y+y<=2){
+			this.x +=x;
+			this.y +=y;
+			location();
+		}else{
+			System.out.println("Ê¨×Ó×²Ç½ÁË£¡");
+			
+		}
+	}
+	public void location(){
+		System.out.println("Ê¨×Ó\nx:"+this.x+"\ty:"+this.y);
+	}
+}
+class Rabbit extends Animal{
+	
+	Rabbit(int x, int y) {
+		this.x = x;
+		this.y = y;
+		this.lv = 1;
+	}
+	@Override
+	public void remove(int x, int y) {
+		if(this.x+x>=0&&this.x+x<=2&&this.y+y>=0&&this.y+y<=2){
+			this.x +=x;
+			this.y +=y;
+			location();
+		}else{
+			System.out.println("ÍÃ×Ó×²Ç½ÁË£¡");
+		}
+	}
+	public void location(){
+		System.out.println("ÍÃ×Ó\nx:"+this.x+"\ty:"+this.y);
+	}
+}
+
+public class test1 {
+	public static void main(String[] args) {
+		Random ran = new Random();
+		Wolf  w = new Wolf(ran.nextInt(3),ran.nextInt(3));
+		Lion  l = new Lion(ran.nextInt(3),ran.nextInt(3));
+		Rabbit  r = new Rabbit(ran.nextInt(3),ran.nextInt(3));
+		l.location();
+		w.location();
+		r.location();
+		int i=0;
+		int count=0;
+		int x,y;
+		while(i!=-1){
+			x = ran.nextInt(3)-1;
+			y = ran.nextInt(3)-1;
+			if(x!=0){
+				y=0;
+			}
+			l.remove(x, y);
+			w.remove(x, y);
+			r.remove(x, y);
+			if(l.x==w.x&&l.y==w.y){
+					
+				if(w.lv!=-10){
+					System.out.println("--------------------------");
+					l.location();
+					w.location();
+					System.out.println("Ê¨×Ó³ÔµôÁËÀÇ£¡");
+					System.out.println("--------------------------");
+					w.lv = -10;
+					count = count+1;
+				}
+			}else if(l.x==r.x&&l.y==r.y){
+				if(r.lv!=-10){
+					System.out.println("--------------------------");
+					l.location();
+					r.location();
+					System.out.println("Ê¨×Ó³ÔµôÁËÍÃ£¡");
+					System.out.println("--------------------------");
+					r.lv = -10;
+					count = count+1;
+				}
+			}else if(w.x==r.x&&w.y==r.y){
+				
+				if(r.lv!=-10&&w.lv!=-10){
+					System.out.println("--------------------------");
+					w.location();
+					r.location();
+					System.out.println("ÀÇ³ÔµôÁËÍÃ£¡");
+					System.out.println("--------------------------");
+					r.lv = -10;
+					count = count+1;
+				}
+			}else {
+				
+			}
+			
+			
+			if(count==2){
+				i = -1;
+			}
+		}
+	}	
+
+}
