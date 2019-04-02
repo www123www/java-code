@@ -1,0 +1,111 @@
+package asdsadsa;
+
+class Animal{
+	int x,y;
+}
+
+class Lion extends Animal{
+	void zuobia(int x,int y){
+	    this.x=x;
+	    this.y=y;
+	}
+	void fanhui(){
+		
+		System.err.print("狮子初始坐标为:"+"x"+x+"y"+y);
+		
+	}
+	int q=(int)(Math.random()*2);
+	int w=(int)(Math.random()*2);
+	void aaa(){
+		System.err.println("狮子当前坐标为:"+"x"+q+"y"+w);
+	}
+	
+}
+
+class Wolf extends Animal{
+	void zuobia(int x,int y){
+	    this.x=x;
+	    this.y=y;
+	}
+	
+	void fanhui(){
+		System.err.print("狼初始坐标为:"+"x"+x+"y"+y);
+		
+	}
+	int q=(int)(Math.random()*2);
+	int w=(int)(Math.random()*2);
+	void aa(){
+		System.err.println("狼当前坐标为:"+"x"+q+"y"+w);
+	}
+}
+
+class Rabbit extends Animal{
+	void zuobia(int x,int y){
+	    this.x=x;
+	    this.y=y;
+	}
+	void fanhui(){
+		System.err.print("兔子初始坐标为:"+"x"+x+"y"+y);
+		
+	}
+	int q=(int)(Math.random()*2);
+	int w=(int)(Math.random()*2);
+	void a(){
+		System.err.println("兔子当前坐标为:"+"x"+q+"y"+w);
+	}
+	
+}
+
+class yidong extends Animal{
+  
+   void chushi(){
+	   System.err.println("狮子当前坐标为:"+"x"+x+"y"+y);
+   }
+   
+}
+public class asd {
+    public static void main(String[] args) {
+    	 Lion a = new Lion();
+    	 Wolf c = new Wolf();
+    	 Rabbit d = new Rabbit();
+    	 yidong b=new yidong();
+    		 a.zuobia(2,2);
+        	 a.fanhui();
+        	 a.aaa();
+        	 c.zuobia(1, 1);
+        	 c.fanhui();
+        	 c.aa();
+        	 d.zuobia(0, 0);
+        	 d.fanhui();
+        	 d.a();
+        	
+                 if(a.q==c.q&&a.w==c.w){
+     	    		System.err.println("狮子吃了狼！");
+     	    		
+     	    		break;
+     	    	 }
+     	    	 else if(a.q==d.q&&a.w==d.w){
+     	               
+    	    		System.err.println("狮子吃了兔子！");
+    	    		
+    	    		break;
+    	    		
+    	    	 }
+     	    	 else if(c.q==d.q&&c.w==d.w){
+    	    		
+    	    		System.err.println("狼吃了兔子！");
+     	    		
+     	    		break;
+     	    	 }
+        	
+    		 
+    
+    		 
+    	
+    	
+    
+	}
+     
+     
+      
+}
