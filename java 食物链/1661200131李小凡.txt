@@ -1,0 +1,190 @@
+package ktlx;
+
+import java.util.Scanner;
+
+public class Animal {
+	int x;// 横坐标
+	int y;// 纵坐标
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	void remove() {
+
+	}
+}
+
+
+
+public class Lion extends Animal {
+	
+	Lion() {
+		Random r = new Random();
+		int x = r.nextInt(20);
+		int y = r.nextInt(20);
+		setX(x);
+		setY(y);
+		System.out.println("Lion的初始坐标为(" + x + "," + y + ")\n");
+	}
+	void remove() {
+		System.out.println("请输入Lion要移动的方向(东西南北):");//e w
+		Scanner sc = new Scanner(System.in);
+		String fx = sc.nextLine();
+		if (fx.equals("e")) {
+			System.out.println("请输入移动的距离");
+			int jl = sc.nextInt();
+			x = x + jl;
+			System.out.println("此时Lion坐标为(" + x + "," + y + ")");
+		} else if (fx.equals("w")) {
+			System.out.println("请输入移动的距离");
+			int jl = sc.nextInt();
+			x = x - jl;
+			System.out.println("此时Lion坐标为(" + x + "," + y + ")");
+		} else if (fx.equals("s")) {
+			System.out.println("请输入移动的距离");
+			int jl = sc.nextInt();
+			y = y - jl;
+			System.out.println("此时Lion坐标为(" + x + "," + y + ")");
+		} else if (fx.equals("n")) {
+			System.out.println("请输入移动的距离");
+			int jl = sc.nextInt();
+			y = y + jl;
+			System.out.println("此时Lion坐标为(" + x + "," + y + ")");
+		} else {
+			System.out.println("输入的方向不存在");
+		}
+	}
+}
+
+public class Wolf extends Animal {
+	Wolf() {
+		Random r = new Random();
+		int x = r.nextInt(20);
+		int y = r.nextInt(20);
+		setX(x);
+		setY(y);
+		System.out.println("Wolf的初始坐标为(" + x + "," + y + ")\n");
+	}
+	void remove() {
+		System.out.println("请输入Wolf要移动的方向(东西南北):");
+		Scanner sc = new Scanner(System.in);
+		String fx = sc.nextLine();
+		if (fx.equals("e")) {
+			System.out.println("请输入Wolf移动的距离");
+			int jl = sc.nextInt();
+			x = x + jl;
+			System.out.println("此时Wolf坐标为(" + x + "," + y + ")");
+		} else if (fx.equals("w")) {
+			System.out.println("请输入Wolf移动的距离");
+			int jl = sc.nextInt();
+			x = x - jl;
+			System.out.println("此时Wolf坐标为(" + x + "," + y + ")");
+		} else if (fx.equals("s")) {
+			System.out.println("请输入Wolf移动的距离");
+			int jl = sc.nextInt();
+			y = y - jl;
+			System.out.println("此时Wolf坐标为(" + x + "," + y + ")");
+		} else if (fx.equals("n")) {
+			System.out.println("请输入Wolf移动的距离");
+			int jl = sc.nextInt();
+			y = y + jl;
+			System.out.println("此时Wolf坐标为(" + x + "," + y + ")");
+		} else {
+			System.out.println("输入的方向不存在");
+		}
+	}
+}
+
+
+public class Rabbit extends Animal {
+	Rabbit() {
+		Random r = new Random();
+		int x = r.nextInt(20) ;
+		int y = r.nextInt(20) ;
+		setX(x);
+		setY(y);
+		System.out.println("Rabbit的初始坐标为(" + x + "," + y + ")\n");
+	}
+	void remove() {
+		System.out.println("请输入Rabbit要移动的方向(东西南北):");
+		Scanner sc = new Scanner(System.in);
+		String fx = sc.nextLine();
+		if (fx.equals("e")) {
+			System.out.println("请输入Rabbit移动的距离");
+			int jl = sc.nextInt();
+			setX(jl+x);
+			System.out.println("此时Rabbit坐标为(" + x + "," + y + ")");
+		} else if (fx.equals("w")) {
+			System.out.println("请输入Rabbit移动的距离");
+			int jl = sc.nextInt();
+			setX(x-jl);
+			System.out.println("此时Rabbit坐标为(" + x + "," + y + ")");
+		} else if (fx.equals("s")) {
+			System.out.println("请输入Rabbit移动的距离");
+			int jl = sc.nextInt();
+			setY(y-jl);
+			System.out.println("此时Rabbit坐标为(" + x + "," + y + ")");
+		} else if (fx.equals("n")) {
+			System.out.println("请输入Rabbit移动的距离");
+			int jl = sc.nextInt();
+			setY(y+jl);
+			System.out.println("此时Rabbit坐标为(" + x + "," + y + ")");
+		} else {
+			System.out.println("输入的方向不存在");
+		}
+	}
+}
+
+
+
+public class Rabbit extends Animal {
+	Rabbit() {
+		Random r = new Random();
+		int x = r.nextInt(20) ;
+		int y = r.nextInt(20) ;
+		setX(x);
+		setY(y);
+		System.out.println("Rabbit的初始坐标为(" + x + "," + y + ")\n");
+	}
+	void remove() {
+		System.out.println("请输入Rabbit要移动的方向(东西南北):");
+		Scanner sc = new Scanner(System.in);
+		String fx = sc.nextLine();
+		if (fx.equals("e")) {
+			System.out.println("请输入Rabbit移动的距离");
+			int jl = sc.nextInt();
+			setX(jl+x);
+			System.out.println("此时Rabbit坐标为(" + x + "," + y + ")");
+		} else if (fx.equals("w")) {
+			System.out.println("请输入Rabbit移动的距离");
+			int jl = sc.nextInt();
+			setX(x-jl);
+			System.out.println("此时Rabbit坐标为(" + x + "," + y + ")");
+		} else if (fx.equals("s")) {
+			System.out.println("请输入Rabbit移动的距离");
+			int jl = sc.nextInt();
+			setY(y-jl);
+			System.out.println("此时Rabbit坐标为(" + x + "," + y + ")");
+		} else if (fx.equals("n")) {
+			System.out.println("请输入Rabbit移动的距离");
+			int jl = sc.nextInt();
+			setY(y+jl);
+			System.out.println("此时Rabbit坐标为(" + x + "," + y + ")");
+		} else {
+			System.out.println("输入的方向不存在");
+		}
+	}
+}
