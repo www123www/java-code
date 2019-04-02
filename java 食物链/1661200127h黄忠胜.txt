@@ -1,0 +1,141 @@
+import java.util.Scanner;
+public class Animal {
+    int x,y;
+    void move(int d){
+        switch (d){
+            case 1:
+                if (x>0) {
+                    x -= 1;
+                }else {
+                    System.out.println("超过边界");
+                }
+                break;
+            case 2:
+                if (x < 10) {
+                    x += 1;
+                } else {
+                    System.out.println("超过边界");
+                }
+                break;
+            case 3:
+                if (y > 0) {
+                    y -= 1;
+                } else {
+                    System.out.println("超过边界");
+                }
+                break;
+            case 4:
+                if (y < 10) {
+                    y += 1;
+                } else {
+                    System.out.println("超过边界");
+                }
+                break;
+        }
+        if (d==1){
+
+        }
+        if (d==2){
+
+        }
+        if (d==3){
+
+        }
+        if (d==4){
+
+        }
+    }
+    void die(){
+        x=-1;
+        y=-1;
+    }
+}
+class Lion extends Animal{
+
+    Lion(){
+        x=3;
+        y=4;
+    }
+}
+class Wolf extends Animal{
+    Wolf(){
+        x=5;
+        y=6;
+    }
+}
+class  Rabbit extends Animal{
+    Rabbit(){
+        x=7;
+        y=8;
+    }
+}
+public class Eat {
+    Animal animal[]={new Lion(),new Rabbit(),new Wolf()};
+
+
+    void compare(){
+        if (animal[0].x==animal[1].x&&animal[0].y==animal[1].y){
+            animal[1].die();
+        }
+        if (animal[1].x==animal[2].x&&animal[1].y==animal[2].y){
+            animal[2].die();
+        }
+        if (animal[1].x==animal[2].x&&animal[1].y==animal[2].y){
+            animal[2].die();
+        }
+    }
+
+    void show(){
+        compare();
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (animal[0].x==i&&animal[0].y==j){
+                    System.out.print("L");
+                }else if (animal[1].x==i&&animal[1].y==j){
+                    System.out.print("W");
+                }else if (animal[2].x==i&&animal[2].y==j){
+                    System.out.print("R");
+                }else {
+                    System.out.print("_");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    void choice(int a, int d){
+        if (a==1){
+            animal[0].move(d);
+        }
+        if (a==2){
+            animal[1].move(d);
+        }
+        if (a == 3) {
+            animal[2].move(d);
+        }
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+        Eat eat=new Eat();
+        eat.show();
+        int i;
+        int direction;
+        System.out.println("输入移动的动物 1.狮子 2.狼 3.兔子 ");
+        i=scanner.nextInt();
+        if (i==0){
+            return;
+        }
+        System.out.println("移动的方向 1.上 2.下 3.左 4.右:");
+        direction=scanner.nextInt();
+        while (true){
+            eat.choice(i,direction);
+            eat.show();
+            System.out.println("输入控制的动物 1.狮子 2.狼 3.兔子 0.结束:");
+            i=scanner.nextInt();
+            System.out.println("移动的方向 1.上 2.下 3.左 4.右:");
+            direction=scanner.nextInt();
+        }
+    }
+}
