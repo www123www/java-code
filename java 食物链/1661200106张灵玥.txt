@@ -1,0 +1,73 @@
+class Animal{
+	int x,y;
+}
+class Lion extends Animal{
+	void coord(int x,int y){
+		this.x=x;
+		this.y=y;
+	}
+	void initial(){
+		System.err.println("狮子初始坐标为："+"x"+x+"y"+y);
+	}
+	int e =(int)(Math.random()*3);
+	int n =(int)(Math.random()*3);
+	void a1(){
+		System.err.println("狮子当前坐标为："+"x"+e+"y"+n);
+	}
+}
+class Wolf extends Animal{
+	void coord(int x,int y){
+		this.x=x;
+		this.y=y;
+	}
+	void initial(){
+		System.err.println("狼初始坐标为："+"x"+x+"y"+y);
+	}
+	int e =(int)(Math.random()*3);
+	int n =(int)(Math.random()*3);
+	void a2(){
+		System.err.println("狼当前坐标为："+"x"+e+"y"+n);
+	}
+}
+class Rabbit extends Animal{
+	void coord(int x,int y){
+		this.x=x;
+		this.y=y;
+	}
+	void initial(){
+		System.err.println("兔子初始坐标为："+"x"+x+"y"+y);
+	}
+	int e =(int)(Math.random()*3);
+	int n =(int)(Math.random()*3);
+	void a3(){
+		System.err.println("兔子当前坐标为："+"x"+e+"y"+n);
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		Lion a = new Lion();
+		Wolf b = new Wolf();
+		Rabbit c = new Rabbit();
+		a.coord(2, 2);
+		a.initial();
+		a.a1();
+		b.coord(1, 1);
+		b.initial();
+		b.a2();
+		c.coord(0, 0);
+		c.initial();
+		c.a3();
+		
+		if(a.e==b.e&&a.n==b.n){
+			System.err.println("狮子吃了狼");
+		}
+		else if(a.e==c.e&&a.n==c.n){
+			System.err.println("狮子吃了兔子");
+		}
+		else if(b.e==c.e&&b.n==c.n){
+			System.err.println("狼吃了兔子");
+		}
+	}
+
+}
