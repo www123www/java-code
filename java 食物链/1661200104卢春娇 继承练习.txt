@@ -1,0 +1,61 @@
+package lu;
+
+public class Animal {
+int east;
+int south;
+int west;
+int north;
+int name;
+//Animal (){}
+//void name(){}
+
+void Position(int east,int south,int west,int north){
+	this.east=east;
+	this.south=south;
+	this.west=west;
+	this.north=north;
+	System.out.println("我在：东"+east+"南"+south+"西"+west+"北"+north);
+}
+}
+class Lion extends Animal{
+	public void Getname(){
+		System.out.println("我是狮子");
+	}
+}
+
+class Wolf extends Animal{
+	void Getname(){
+		System.out.println("我是狼");
+	}
+}
+class Rabbit extends Animal{
+	void Getname(){
+		System.out.println("我是兔子");
+	}
+	
+}
+class Integration{
+	public static void main(String[] args){
+		Lion l=new Lion();
+		Wolf w=new Wolf();
+		Rabbit r=new Rabbit();
+		Animal a=new Animal();
+		l.Getname();
+		a.Position(1, 1, 1, 1);
+		w.Getname();
+		a.Position(2, 2, 2, 2);
+		r.Getname();
+		a.Position(3, 3, 3, 3);
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
