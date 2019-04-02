@@ -1,0 +1,160 @@
+package zzh;
+import java.util.Scanner;
+
+class Animal
+{  
+    boolean life;
+	String name;
+	int x,y;
+	void yiDongFX()
+	{   
+		
+		float num=(float)Math.random()*100;
+		int a=(int)num%4;
+		switch(a)
+		{
+		case 0:if(x+1<=3)
+		       {
+			      x++;
+			      System.out.println(name+"向东走了一步，当前位置为"+"("+x+","+y+")");
+		       }else
+		       {
+		    	   System.out.println(name+"停下休息了一会，当前位置为"+"("+x+","+y+")");
+		       }
+			      break;
+		case 1:if(x-1>=0)
+		        {
+			       x--;
+			       System.out.println(name+"向西走了一步，当前位置为"+"("+x+","+y+")");
+			     }else
+			       {
+			    	   System.out.println(name+"停下休息了一会，当前位置为"+"("+x+","+y+")");
+			       };break;
+		case 2:if(y+1<=3)
+		{
+			y++;System.out.println(name+"向北走了一步，当前位置为"+"("+x+","+y+")");
+			}else
+		       {
+		    	   System.out.println(name+"停下休息了一会，当前位置为"+"("+x+","+y+")");
+		       };
+		
+		break;
+		case 3:if(y-1>=0)
+		{
+			y--;y++;System.out.println(name+"向南走了一步，当前位置为"+"("+x+","+y+")");
+		}else
+	       {
+	    	   System.out.println(name+"停下休息了一会，当前位置为"+"("+x+","+y+")");
+	       }break;
+		}
+	
+	}
+	
+}
+class Lion extends Animal
+{
+	
+	 Lion()
+	{
+	name="狮子";
+	x=2;y=2;
+	
+	life=true;
+	}
+	void panDuan(Wolf a)
+	{
+		if(x==a.x&&y==a.y&&a.life==true)//狮子吃狼
+		{
+			
+			a.siWang();
+			System.out.println(a.name+"被"+name+"吃掉了");
+		}
+	}
+	void panDuan(Rabbit a)
+	{
+		if(x==a.x&&y==a.y&&a.life==true)//狮子吃tu
+		{
+			
+			a.siWang();
+			System.out.println(a.name+"被"+name+"吃掉了");
+		}
+	}
+}
+
+
+class Wolf extends Animal
+{
+	Wolf()
+	{  name="狼";
+		x=3;y=3;
+		
+		life=true;
+	}
+	void panDuan(Rabbit a)
+	{
+		if(x==a.x&&y==a.y&&a.life==true)//狼吃兔
+		{
+			
+			a.siWang();
+			System.out.println(a.name+"被"+name+"吃掉了");
+		}
+	}
+	void siWang()
+	{
+		life=false;
+		
+	}
+
+}
+
+class Rabbit extends Animal
+{
+	Rabbit()
+	{   name="兔子";
+		x=1;y=1;
+		
+		life=true;
+	}
+	void siWang()
+	{
+		life=false;
+		
+		
+	}
+}
+
+ class zzh1 {
+	public static void main(String args[]){
+	Lion l=new Lion();//zzh
+	System.out.println("狮子起点："+"("+l.x+","+l.y+")");
+	Wolf w=new Wolf();
+	System.out.println("狼起点："+"("+w.x+","+w.y+")");
+	Rabbit r=new Rabbit();
+	System.out.println("兔起点："+"("+r.x+","+r.y+")");
+	
+	while(r.life==true||w.life==true)
+	{
+		l.yiDongFX();
+		
+		l.panDuan(w);//狮子吃狼
+		l.panDuan(r);//狮子吃兔
+		
+	if(r.life==true)
+	{	
+		r.yiDongFX();
+		l.panDuan(r);//狮子吃兔
+		w.panDuan(r);//狼吃兔
+		
+		
+	}	
+	if(w.life==true)
+	{
+	        w.yiDongFX();
+	        w.panDuan(r);//狼吃兔
+	        l.panDuan(w);//狮子吃狼
+	      
+	}
+	}
+
+	}
+}
