@@ -1,0 +1,118 @@
+package test090402extends;
+import java.util.Random;
+
+public class Animal {
+	int x;
+	int y;
+
+	int step; //步数
+	int power;//权重
+	String name; //动物名字
+	int live;//存活
+
+	Animal(int live,int step,int power,int x,int y,String name){ //构造函数
+		this.live=live;
+		this.step=step;
+		this.power=power;
+		this.x=x;
+		this.y=y;
+		this.name=name;	
+	}
+	void move(){ //父类的移动类
+
+		boolean p = true;
+		int m=0,n=0;
+		while(p){
+			
+			Random c = new Random();
+			int a = c.nextInt(4);
+			m=x;n=y;
+			if(a==0){n=n+step;} //向北移动
+			else if(a==1){m=m+step;}//向东移动
+			else if(a==2){n=n-step;}//向南移动
+			else{m=m-step;}//向西移动
+			
+			if(m>4||n>4||m<0||n<0){
+				p=true;
+			}
+			else{p=false;}
+			
+		 }
+			x=m;y=n;
+		}
+
+
+	}
+class Lion extends Animal{
+	Lion(){super(1,2,3,4,4,"Lion");} //传的参数分别是：1。存活，2。移动的步数，3.优先级大小，数值越大（等级越高），4.初始位置x，5.初始位置y，6.动物名字
+}
+
+class Wolf extends Animal{
+	Wolf(){super(1,2,2,0,4,"Wolf");}
+	
+}
+
+class Rabbit extends Animal{
+	Rabbit(){super(1,1,1,0,0,"Rabbit");}
+	
+}
+
+class Rule{//创建一个规则的类
+	Rule(Animal b[]){a=b;}
+	Animal a[];
+	void eat(){ //创建一个规则的方法
+		
+	
+	
+	for(int n=0;n<3;n++){//创建一个规则的方法
+		System.out.println(a[n].name+"初始位置："+a[n].x+","+a[n].y);
+	}
+	
+	for(int m=1;m<20;m++){
+	System.out.println("第 "+m+"回合");
+
+		for(int i=0;i<a.length;i++) {
+			
+			if(a[i].live==1){  //判断动物是否存活 存活则移动
+				a[i].move();
+				System.out.println(a[i].name+"当前位置："+a[i].x+","+a[i].y);
+				
+				for(int j=0;j<a.length;j++){
+					
+					if(i!=j&&a[j].live==1){
+						
+						if(a[i].x==a[j].x&&a[i].y==a[j].y)
+							
+							if(a[i].power>a[j].power) {
+								
+								System.out.println(a[j].name+"被"+a[i].name+"吃了！");
+								a[j].live=0;
+								
+							}
+							else {
+								System.out.println(a[i].name+"被"+a[j].name+"吃了！");
+								a[i].live=0;
+								
+							}
+					}
+				}
+			}
+			
+		 }
+	 }
+  }
+
+}
+
+
+class test{ 
+	
+public static void main(String args[]){
+	Animal b[]= {new Lion(), new Wolf(), new Rabbit()};
+
+	Rule g = new Rule(b);
+		g.eat();
+
+  
+	}
+}
