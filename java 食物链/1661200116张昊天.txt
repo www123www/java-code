@@ -1,0 +1,135 @@
+class animal {
+	int a,b;
+	public animal() {
+		// TODO Auto-generated constructor stub
+	}
+	animal(int a,int b){
+		this.a=a;
+		this.b=b;
+	}
+	void move(){
+		Random random=new Random();
+		a=Math.abs(random.nextInt()%4)-2;
+		b=Math.abs(random.nextInt()%4)-2;	
+	}	
+}
+class rabbit extends animal{
+	void d(){
+		System.out.println("兔子坐标为:"+a+","+b);
+		
+	}
+	rabbit(){
+		
+	}
+	rabbit(int a,int b){
+		this.a=a;
+		this.b=b;
+	}
+}
+class wolf extends animal{
+	void d(){
+		System.out.println("狼坐标为:"+a+","+b);
+		
+	}
+	wolf(){
+		
+	}
+	wolf(int a,int b){
+		this.a=a;
+		this.b=b;
+	}
+}
+class lion extends animal{
+	void d(){
+		System.out.println("狮子坐标为:"+a+","+b);
+		
+	}
+	lion(){
+		
+	}
+	lion(int a,int b){
+		this.a=a;
+		this.b=b;
+	}
+}
+public class AddressList {
+	public static void main(String args[]){
+	lion l=new lion();
+	wolf w=new wolf();
+	rabbit r=new rabbit();
+	l.move();
+	w.move();
+	r.move();
+	int i=0;
+	
+	while (i<=1000) {
+		if (l.a==w.a&&l.b==w.b&&l.a==r.a&&l.b==r.b) {
+			System.out.println("狮子报餐一顿");
+			l.d();
+			break;
+		}
+		if (l.a==w.a&&l.b==w.b) {
+			System.out.println("狮子吃掉了狼");
+			l.d();
+			r.d();
+			l.move();
+			r.move();
+			while (i<=1000) {
+				l.move();
+				r.move();
+				if (l.a==r.a&&l.b==r.b) {
+					System.out.println("狮子吃掉了兔子");
+					l.d();
+					break;
+				}
+			}
+			
+			break;
+	
+		}else	
+		if (l.a==r.a&&l.b==r.b) {
+			System.out.println("狮子吃掉了兔子");
+			l.d();
+			w.d();
+			l.move();
+			w.move();
+			while (i<=1000) {
+				w.move();
+				if (l.a==w.a&&l.b==w.b) {
+					System.out.println("狮子吃掉了狼");
+					l.d();
+					break;
+				}
+			}
+			
+					break;
+		}else 
+		if(w.a==r.a&&w.b==r.b){
+			System.out.println("狼吃掉了兔子");
+			l.d();
+			l.move();
+			w.d();
+			w.move();
+			while (i<=1000) {
+				w.move();
+				if (l.a==w.a&&l.b==w.b) {
+					System.out.println("狮子吃掉了狼");
+					l.d();
+					break;
+				}
+			}			
+				break;
+	
+		}else {
+			l.d();
+			w.d();
+			r.d();
+			l.move();
+			w.move();
+			r.move();
+		}	
+		i++;
+	}		
+	}
+}
+
