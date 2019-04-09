@@ -1,0 +1,156 @@
+package zzh;
+import java.util.Scanner;
+
+class Animal
+{  
+    boolean life;
+	String name;
+	int x,y;
+	int grade;
+	void yiDongFX()
+	{   
+		
+		float num=(float)Math.random()*100;
+		int a=(int)num%4;
+		switch(a)
+		{
+		case 0:if(x+1<=5)
+		       {
+			      x++;
+			      System.out.println(name+"向东走了一步，当前位置为"+"("+x+","+y+")");
+		       }else
+		       {
+		    	   System.out.println(name+"停下休息了一会，当前位置为"+"("+x+","+y+")");
+		       }
+			      break;
+		case 1:if(x-1>=0)
+		        {
+			       x--;
+			       System.out.println(name+"向西走了一步，当前位置为"+"("+x+","+y+")");
+			     }else
+			       {
+			    	   System.out.println(name+"停下休息了一会，当前位置为"+"("+x+","+y+")");
+			       };break;
+		case 2:if(y+1<=5)
+		{
+			y++;System.out.println(name+"向北走了一步，当前位置为"+"("+x+","+y+")");
+			}else
+		       {
+		    	   System.out.println(name+"停下休息了一会，当前位置为"+"("+x+","+y+")");
+		       };
+		break;
+		case 3:if(y-1>=0)
+		{
+			y--;System.out.println(name+"向南走了一步，当前位置为"+"("+x+","+y+")");
+		}else
+	       {
+	    	   System.out.println(name+"停下休息了一会，当前位置为"+"("+x+","+y+")");
+	       }break;
+		}
+	}
+}
+class Game
+{
+	Animal b[];
+	Game(Animal a[])
+	{
+		
+		Animal c;
+		for(int ii=0;ii<a.length;ii++)//20次
+		{
+			for(int i=0;i<a.length-1;i++)
+			{
+				if(a[i].grade>a[i+1].grade)
+				{
+					c=a[i];
+					a[i]=a[i+1];
+					a[i+1]=c;
+				}
+			}
+		}
+		b=a;
+	}
+	void panDuan(Animal a,Animal b)
+	{
+		if(b.x==a.x&&b.y==a.y&&a.life==true&&b.life==true)
+		{
+			if(a.grade>b.grade)
+			{
+				b.life=false;
+			    System.out.println(b.name+"被"+a.name+"吃掉了");
+			    
+			}else if(a.grade<b.grade)
+			{
+				a.life=false;
+			    System.out.println(a.name+"被"+b.name+"吃掉了");
+			    
+			}
+		}
+	}
+	void guiZe()
+	{
+		for(int ii=0;ii<20;ii++)//20次
+		{System.out.println("回合"+(ii+1));
+			for(int i=0;i<b.length;i++)
+			{
+				if(b[i].life==true)
+			    {
+					b[i].yiDongFX();
+					for(int j=0,k=(i+1)%b.length;j<b.length-1;j++,k=(k+1)%b.length)
+					{
+						panDuan( b[i],b[k]);
+					}
+			    }
+			}
+		}
+	}
+	
+	
+}
+class Lion extends Animal
+{
+	
+	 Lion(String a)
+	{
+	name=a;
+	x=2;y=2;
+	grade=3;
+	life=true;
+	}
+}
+
+
+class Wolf extends Animal
+{
+	Wolf(String a)
+	{  name=a;
+		x=3;y=3;
+		grade=2;
+		life=true;
+	}
+}
+
+class Rabbit extends Animal
+{
+	Rabbit(String a)
+	{   name=a;
+		x=1;y=1;
+		grade=1;
+		life=true;
+	}
+}
+
+ class zzh1 {
+	public static void main(String args[]){
+		
+		System.out.println("森林规则");
+		System.out.println("森林为0-5的二维坐标,20回合");
+	    System.out.println("狮子起点(2,2),狼起点(3,3),兔起点(1,1)");
+	    System.out.println("所有动物在森林区域内移动，超过范围会在原地休息");
+	    System.out.println("移动顺序兔子>狼>老虎");
+		Animal b[]={new Lion("狮子"),new Wolf("狼"),new Rabbit("兔子1"),new Rabbit("兔子3"),new Rabbit("兔子2")};
+	    Game g=new Game(b);
+	    g.guiZe();
+	
+	}
+}
