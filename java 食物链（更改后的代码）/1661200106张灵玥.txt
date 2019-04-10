@@ -1,0 +1,64 @@
+class Animal{
+	int x,y,z;
+	String name;
+	void move(){
+		x = (int)(Math.random()*5);
+		y = (int)(Math.random()*5);
+	}
+}
+class Lion extends Animal{
+	Lion(String name){
+		x = (int)(Math.random()*5);
+		y = (int)(Math.random()*5);
+		this.name=name;
+		z=3;
+	}
+	
+}
+class Wolf extends Animal{
+	Wolf(String name){
+		x = (int)(Math.random()*5);
+		y = (int)(Math.random()*5);
+		this.name=name;
+		z=2;
+	}
+}
+class Rabbit extends Animal{
+	Rabbit(String name){
+		x = (int)(Math.random()*5);
+		y = (int)(Math.random()*5);
+		this.name=name;
+		z=1;
+	}
+}
+
+public class Test {
+	public static void main(String[] args) {
+		Animal A[]={new Lion("狮子"),new Wolf("大灰狼"),new Rabbit("小白兔")};
+		for(int i = 0;i<A.length;i++){
+			System.out.println(A[i].name+"起始坐标：("+A[i].x+","+A[i].y+")");
+		}
+		for(int i=0;i<20;i++){
+			for(int j=0;j<A.length;j++){
+				if(A[j]!=null){
+					A[j].move();
+					System.out.println(A[j].name+"("+A[j].x+","+A[j].y+")");
+				}
+			}
+			for(int l=0;l<A.length;l++){
+				for(int q=0;q<A.length;q++){
+					if(A[q]!=null&&A[l]!=null&&A[l].x==A[q].x&&A[l].y==A[q].y){
+						if(A[l].z>A[q].z){
+							System.out.println(A[l].name+"把"+A[q].name+"吃了");
+							A[q]=null;
+						}
+					}
+					if(A[q]==null&&A[l]==null){
+						break;
+					}
+				}
+			}
+		}
+	}
+
+}
