@@ -1,0 +1,82 @@
+package test;
+import java.util.Random;
+
+public class Animal { //父类
+	
+	int x,y,a;
+	int lv;
+	int atk;
+	int move;
+	
+
+	void eat(){ //吃掉
+		Lion lion=new Lion();
+		Wolf wolf=new Wolf(); 
+		Rabbit rabbit=new Rabbit();
+	}
+
+	void move(){//移动
+	
+		x= new Random().nextInt(100);
+		y= new Random().nextInt(100);
+		a= new Random().nextInt(4);
+		int i=0;
+		
+		while(i<10){ //随机移动
+			a= new Random().nextInt(4);
+			if(a==0){
+				x=x+1;
+			}
+			if(a==1&&x!=0){
+				x=x-1;
+			}
+			if(a==2){
+				y=y+1;
+			}
+			if(a==3&&y!=0){
+				y=y-1;
+			}
+			System.out.print("("+x+","+y+")"+"—>");
+			i++;
+		}
+	
+	}
+	
+}
+
+	class Lion extends Animal{
+		int lv=3;
+	}
+
+	class Wolf extends Animal{
+		int lv=2;
+	}
+
+	class Rabbit extends Animal{
+		int lv=1;
+	}
+
+
+
+
+
+package test;
+
+public class map extends Animal{
+
+	public static void main(String args[]){
+		Animal a=new Animal();
+		Lion lion=new Lion();
+		Wolf wolf=new Wolf(); 
+		Rabbit rabbit=new Rabbit();
+		System.out.print("狮子的起始坐标:");
+		lion.move();
+		System.out.println("");
+		System.out.print("狼狗的起始坐标:");
+		wolf.move();
+		System.out.println("");
+		System.out.print("兔子的起始坐标:");
+		rabbit.move();
+	}
+}
+
