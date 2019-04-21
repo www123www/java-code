@@ -1,0 +1,118 @@
+
+interface Commodity
+{
+	String getName();
+	double getPrice();
+}
+class Shop
+{
+	Commodity c[];
+	Shop(Commodity c[])
+	{
+		this.c = c;
+	
+	}
+	void Inquire(String str)//查找
+	{
+		for(int i=0;i<c.length;i++)
+		{
+			String s = c[i].getName();
+			if(s.indexOf(str)>=0)
+			{
+				System.out.println(c[i].getName());
+			}
+			
+		}	
+	}
+}
+class Phone implements Commodity
+{
+	String Sname;
+	double Price;
+	Phone(String name,int price){this.Sname = name;this.Price = price;}
+	public String getName()
+	{
+		return Sname;
+	}
+	public double getPrice()
+	{
+		return Price;
+	}
+}
+class Computer implements Commodity
+{
+	String Sname;
+	double Price;
+	Computer(String name,int price){this.Sname = name;this.Price = price;}
+	public String getName()
+	{
+		return Sname;
+	}
+	public double getPrice()
+	{
+		return Price;
+	}
+}
+
+
+
+public class Example {
+	public static void main(String args[]){
+		Commodity c[]={new Phone("红米手机",3600),new Phone("小米手机",3600),new Phone("华为手机",3600),new Phone("360手机",3600),new Computer("惠普笔记本电脑",6000),new Computer("联想笔记本电脑",6000)};
+		Shop s;
+		s = new Shop(c);
+		s.Inquire("米");
+		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*interface Geometry{
+	double getArea();
+}
+class Pillar implements Geometry
+{
+	double h;
+	Pillar(double h,Geometry g){this.h=h;}
+	
+	public double getArea()
+	{
+		return h*getArea();
+	}
+}
+class Circle implements Geometry
+{
+	double r;
+	Circle (double r){this.r=r;}
+	public double getArea()
+	{
+		return (3.14*r*r);
+	}
+}
+class Rectangle implements Geometry
+{
+	double a,b;
+	Rectangle (double a,double b){this.a=a;this.b=b;}
+	public double getArea()
+	{
+		return a*b;
+	}
+}*/
+
+
