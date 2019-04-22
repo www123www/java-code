@@ -1,0 +1,60 @@
+package zzh;
+import java.util.Scanner;
+
+ interface  CommodityAttribute {
+    int priceFZ();
+    String nameFZ();
+}
+ class Shop
+ {
+	 commodity h[];
+	 Shop(commodity h[])
+	 {this.h=h;}
+	 void seek(String str)
+	 {
+		      for(int i=0;i<h.length;i++)
+		      {
+		    	  if(h[i].nameFZ().indexOf(str)>-1)
+		      
+			 {
+				 System.out.println( h[i].nameFZ()+h[i].priceFZ()); 
+			}
+	 }
+	 }
+ }
+ 
+ class commodity implements  CommodityAttribute
+ {
+	 String name;
+	 int price;
+	 commodity(String name,int price)
+	 {
+		 this.name=name;
+		 this.price=price;
+	 }
+	 public String nameFZ()
+	   {
+		   
+		   return name;
+	   }
+	 public int priceFZ()
+	   {
+		   
+		   return price;
+	   }
+ }
+ 
+ class zzh1 {
+		public static void main(String args[]){
+			Scanner reader=new Scanner(System.in);
+		
+			
+			commodity a[]={new commodity("毛笔",10),new commodity("钢笔",15),new commodity("笔记本电脑",4000),new commodity("台式电脑",3000)};
+			Shop s=new Shop(a);
+			String str=reader.next();
+			
+			s.seek(str);
+			
+			
+		
+		}}
