@@ -1,0 +1,153 @@
+package test090402extends;
+import java.util.Random;
+
+public class Animal {
+	int x;
+	int y;
+
+	int step; //步数
+	int power;//权重
+	String name; //动物名字
+	int live;//存活
+
+	void move(){ //父类的移动类
+
+		Random c = new Random();
+		int a = c.nextInt(4);
+		switch(a)
+		{
+		case 0:if(x+step<=7)
+		       {
+			      x=x+step;
+			      System.out.println(name+"向东走了" + step + "步");
+		       }else
+		       {
+		    	   System.out.println(name+"停下休息了一会，");
+		       }
+			      break;
+		case 1:if(x-step>=0)
+		        {
+			       x=x-step;
+			       System.out.println(name+"向西走了"+step+"步，");
+			     }else
+			       {
+			    	   System.out.println(name+"停下休息了一会，");
+			       };break;
+		case 2:if(y+step<=7)
+		{
+			y=y+step;
+			System.out.println(name+"向北走了"+step+"步，");
+			}else
+		       {
+		    	   System.out.println(name+"停下休息了一会，");
+		       };
+		break;
+		case 3:if(y-step>=0)
+		{
+			y=y-step;
+			System.out.println(name+"向南走了"+step+"步，");
+		}else
+	       {
+	    	   System.out.println(name+"停下休息了一会，");
+	       }break;
+		}
+		}
+
+
+	}
+class Lion extends Animal{
+	Lion(String n){
+
+		name=n;
+		x=4;
+		y=4;
+		step=3; //步数
+		power=3;//权重
+		live=1;//存活
+	} //传的参数分别是：1。存活，2。移动的步数，3.优先级大小，数值越大（等级越高），4.初始位置x，5.初始位置y，6.动物名字
+}
+
+class Wolf extends Animal{
+	Wolf(String n){
+
+		name=n;
+		x=0;
+		y=4;
+		step=2; //步数
+		power=2;//权重
+		live=1;//存活
+	}
+	
+}
+
+class Rabbit extends Animal{
+	Rabbit(String n){
+		name=n;
+		x=0;
+		y=0;
+		step=1; //步数
+		power=1;//权重
+		live=1;//存活
+	}
+	
+}
+
+class Rule{//创建一个规则的类
+	Rule(Animal b[]){a=b;}
+	Animal a[];
+	void eat(){ //创建一个规则的方法
+		
+	
+	
+	for(int n=0;n<a.length;n++){//创建一个规则的方法
+		System.out.println(a[n].name+"初始位置："+a[n].x+","+a[n].y);
+	}
+	
+	for(int m=1;m<=20;m++){
+	System.out.println("第 "+m+"回合");
+
+		for(int i=0;i<a.length;i++) {
+			
+			if(a[i].live==1){  //判断动物是否存活 存活则移动
+				a[i].move();
+				System.out.println(a[i].name+"当前位置："+a[i].x+","+a[i].y);
+				
+				for(int j=0;j<a.length;j++){
+					
+					if(i!=j&&a[j].live==1){
+						
+						if(a[i].x==a[j].x&&a[i].y==a[j].y)
+							
+							if(a[i].power>a[j].power) {
+								
+								System.out.println(a[j].name+"被"+a[i].name+"吃了！");
+								a[j].live=0;
+								
+							}
+
+					}
+				}
+			}
+			
+		 }
+	 }
+  }
+
+}
+
+
+class test{ 
+	
+public static void main(String args[]){
+	System.out.println("森林规则");
+	System.out.println("森林为0-7的二维坐标,20回合");
+    System.out.println("所有动物在森林区域内移动，超过范围会在原地休息");
+    System.out.println("移动顺序Lion>Wolf>Rabbit");
+	Animal b[]= {new Lion("狮子"), new Wolf("狼"),  new Rabbit("兔子1"), new Rabbit("兔子2"), new Rabbit("兔子3")};
+
+	Rule g = new Rule(b);
+		g.eat();
+
+  
+	}
+}
