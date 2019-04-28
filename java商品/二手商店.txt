@@ -1,0 +1,54 @@
+package rey;
+
+interface ershou {
+void 显示商品 (String s);
+void money(String a);
+}
+ class TV implements ershou{
+	public void 显示商品(String s){
+		System.out.println(s);
+	}
+	public void money(String a){
+		System.out.println(a);
+	}
+}
+class PC implements ershou{
+	public void 显示商品(String s){
+		System.out.println(s);
+	}
+public void money(String a){
+	System.out.println(a);
+	}
+}
+class PH implements ershou{
+	public void 显示商品(String s){
+		System.out.println(s);
+	}
+public void money(String a){
+	System.out.println(a);
+	}
+}
+ class test{
+	public static void main(String args[]){
+		ershou ss,a;
+		ss=new TV();
+		a=new TV();
+		ss.显示商品("电视机");
+		a.money("单价：1000");
+		ss=new PC();
+		ss.显示商品("电脑");
+		a.money("单价：1000");
+		ss=new PH();
+		ss.显示商品("手机");
+		a.money("单价：1000");
+	}
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
