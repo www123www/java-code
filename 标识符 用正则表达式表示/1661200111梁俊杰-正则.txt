@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class main {
+	public static void main(String args[])
+	{
+		String regex="[a-zA-Z|_|$|]+[A-Az-z|_|$||0-9]*";
+		Scanner scanner=new Scanner(System.in);
+		String str=scanner.nextLine();
+		if(str.matches(regex))
+		{
+			System.out.println(str+" 标识符合法");
+		}
+		else
+		{
+			System.out.println(str+" 标识符不合法");
+		}
+	}
+}
