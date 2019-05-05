@@ -1,0 +1,30 @@
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Test{
+	
+	public static void main(String[] args) {
+	   Scanner scanner=new Scanner(System.in);
+	
+	   int count=0;
+	   while(count<5) {
+		   String str=scanner.next();
+		   if(check(str)) {
+				System.out.println("是标识符!");
+				count++;
+			}else {
+				System.out.println("不是标识符!");
+			}
+	   }
+		
+	}
+	public static boolean check(String str) {
+		Pattern patter=Pattern.compile("\\D{1,1}[$|_|0-9|a-zA-Z]*");
+		
+		Matcher matcher=patter.matcher(str);
+		
+		if(matcher.matches())return true; 
+		return false;
+	}
+}
