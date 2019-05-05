@@ -1,0 +1,36 @@
+package zz;
+import java.util.Scanner;
+public class Test {
+	public static void main(String args[])
+	{
+		String regex="^[a-zA-Z$][a-zA-Z0-9$]*";
+		
+		String[] keywordString = {"abstract", "assert", "boolean",
+				               "break", "byte", "case", "catch", "char", "class",
+				               "const", "continue", "default", "do", "double",
+				               "else", "enum", "extends", "for", "final", "finally",
+				               "float", "goto", "if", "implements", "import", "instanceof",
+				               "int", "interface", "long", "native", "new", "package",
+				               "private", "protected", "public", "return", "short",
+				               "static", "strictfp", "super", "switch", "synchronized",
+				               "this", "throw", "throws", "transient", "try",
+				                 "void", "volatile", "while", "true", "false", "null"};
+		Scanner sc=new Scanner(System.in);
+		String srt=sc.nextLine();
+		if (srt.matches(regex))
+		{
+			for(int i=0;i<=keywordString.length;i++)
+			{
+				if (srt.equals(keywordString[i])==false)
+				{
+					System.out.println("合法");
+					break;
+				}
+			}
+			
+		}
+		else {
+			System.out.println("非法");
+		}
+	}
+}
