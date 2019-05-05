@@ -1,0 +1,94 @@
+public class Macket {
+	Goods goods[];
+	Macket(Goods goods[]){
+		this.goods=goods;
+	}
+	public void chack(){
+		for(int i=0;i<=goods.length;i++){
+		System.out.println("商品名："+goods[i].getName()+"   价格："+goods[i].getPrice());}
+			}
+}
+
+interface Goods {
+	public abstract String getName();
+	public abstract int getPrice();
+
+}
+class Compter implements Goods{
+	String name;
+	int price;
+	Compter(String name,int price){
+		this.name=name;
+		this.price=price;
+	}
+	public String getName(){
+		return name;
+	}
+	public int getPrice(){
+		return price;
+	}
+}
+ 
+ class Tv implements Goods{
+	String name;
+	int price;
+	Tv(String name,int price){
+		this.name=name;
+		this.price=price;
+	}
+	public String getName(){
+		return name;
+	}
+	public int getPrice(){
+		return price;
+	}
+}
+ 
+ class Phone implements Goods{
+	String name;
+	int price;
+	Phone(String name,int price){
+		this.name=name;
+		this.price=price;
+	}
+	public String getName(){
+		return name;
+	}
+	public int getPrice(){
+		return price;
+	}
+}
+
+
+
+import java.util.Scanner;
+import java.lang.String;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Goods tv[]={new Tv("创维",200),new Tv("海尔",200)};
+		Goods phone[]={new Phone("iphone",3000),new Phone("华为",5000)};
+		Goods compter[]={new Compter("联想",3000),new Compter("神舟",4000)};
+		System.out.println("请输入要查询二手商品类别：");
+		Scanner re = new Scanner(System.in);
+		String a=re.next();
+		if(a.equals("tv")) {
+			Macket ma = new Macket(tv);
+			ma.chack();
+		}
+		else if(a.equals("phone")) {
+			Macket ma = new Macket(phone);
+			ma.chack();
+			}
+		else if(a.equals("compter")) {
+				Macket ma = new Macket(compter);
+				ma.chack();
+		}
+		else {
+			System.out.println("查询不到任何东西！");
+		}
+	}
+
+}
