@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class meto {
+
+    public static void main(String[] args) {
+
+                  String aaa="[a-zA-Z|_|$|]+[a-zA-Z|0-9|_|$]*";
+                  System.out.println("请输入数据");
+                  Scanner  q=new Scanner(System.in);
+                  String ccc=q.nextLine();
+                  if(ccc.matches(aaa)){
+
+                      System.out.println(aaa+"合法");
+                  }else{
+
+                      System.out.println(aaa+"不合法");
+                  }
+
+    }
+}
