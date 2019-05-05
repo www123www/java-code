@@ -2,16 +2,16 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Test{
+public class TestDemo{
 	
 	public static void main(String[] args) {
-		Scanner scanner=new Scanner(System.in);
+		Scanner read=new Scanner(System.in);
 	
 		
 		int count=0;
-	   while(count<5) {
-		   String str=scanner.next();
-		   if(check(str)) {
+	   while(count<10) {
+		   String str=read.next();
+		   if(isCheck(str)) {
 				System.out.println("·ûºÏ±êÊ¶·û");
 				count++;
 			}else {
@@ -20,10 +20,10 @@ public class Test{
 	   }
 		
 	}
-	public static boolean check(String str) {
+	public static boolean isCheck(String s) {
 		Pattern patter=Pattern.compile("\\D{1,1}[$|_|0-9|a-zA-Z]*");
 		
-		Matcher matcher=patter.matcher(str);
+		Matcher matcher=patter.matcher(s);
 		
 		if(matcher.matches())return true; 
 		return false;
