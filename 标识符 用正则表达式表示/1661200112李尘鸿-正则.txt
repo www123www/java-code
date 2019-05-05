@@ -1,0 +1,15 @@
+package bas;
+import java.util.*;
+public class zhengze {
+	public static void main(String args[]){
+		//
+		String regex="[a-zA-Z|$|_|]+[a-zA-Z|$|_|0-9]*";
+		Scanner sr=new Scanner(System.in);
+		String st=sr.nextLine();
+		if(st.matches(regex)){
+			System.out.println(st+"是由英文字母、数字、下划线组成");
+		}
+		else{
+			System.out.println("表达式中有非法字符");}
+	}
+}
