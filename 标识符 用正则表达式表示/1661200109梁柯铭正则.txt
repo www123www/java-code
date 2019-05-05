@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class lkm{
+	public static void lkm(String args[])
+	{
+		String regex="[a-zA-Z|_|$|]+[A-Az-z|_|$||0-9]*";
+		Scanner scanner=new Scanner(System.in);
+		String mm=scanner.nextLine();
+		if(mm.matches(regex))
+		{
+			System.out.println(mm+" 合法");
+		}
+		else
+		{
+			System.out.println(mm+" 不合法");
+		}
+	}
+}
