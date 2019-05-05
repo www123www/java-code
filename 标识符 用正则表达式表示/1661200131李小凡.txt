@@ -1,0 +1,17 @@
+package zy2019_4_30;
+
+import java.util.Scanner;
+
+public class Zzbds {
+	public static void main(String[] args) {
+		System.out.println("请输入你需要判断的字符串");
+		String regex = "[a-zA-Z|0-9|_|$]+[a-zA-Z|_|$|]";
+		Scanner sc = new Scanner(System.in);
+		String str = sc.nextLine();
+		if (str.matches(regex)) {
+			System.out.println(str + "合法");
+		} else {
+			System.out.println(str + "中有非法字符");
+		}
+	}
+}
