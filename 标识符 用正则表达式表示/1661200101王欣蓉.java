@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class biaoshifu {
+public class Test {
 
 	public static void main(String[] args) {
 		String regex = "[a-zA-Z]+[A-Az-z|0-9]*\\w{3,14}";
