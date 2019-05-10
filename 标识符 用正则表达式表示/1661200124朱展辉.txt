@@ -1,0 +1,50 @@
+import java.util.regex.Matcher;
+
+import java.util.regex.Pattern;
+
+import java.util.Scanner;
+ 
+public class zzh{
+	
+public static void main(String[] args) {
+
+		
+			
+  Scanner s = new Scanner(System.in);
+  System.out.print("请输入密码：");
+			
+  System.out.println("密码第一个字符必须是字母,密码不能包含除字母、数字、下划线以外的字符；最少6个字符且不超过12个字符");
+	
+  String str = s.next();
+			
+  if (pword(str)) {
+				
+    System.out.println("匹配正确！");
+				
+			
+  }else{
+			    
+    System.out.println("不符合标识符！");
+			
+  }
+		
+	
+}
+	
+public static boolean pword(String str) 
+	
+{
+	    
+  Pattern p = Pattern.compile("[a-zA-Z]\\w{5,11}[_|0-9|a-zA-Z]");
+	    
+  Matcher m = p.matcher(str);
+		
+  if (m.matches())
+    return true; 
+		
+  else 
+    return false;
+  
+ }
+
+ }

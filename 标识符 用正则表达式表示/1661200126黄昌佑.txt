@@ -1,0 +1,29 @@
+package rr;
+//使用Pattern定义正则表达式，使用Matcher匹配其他序列中的模式。
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.Scanner;
+public class rr{
+public static void main(String[] args) 
+{	
+  Scanner s = new Scanner(System.in);	
+  System.out.println("请输入字符类");
+  String str = s.next();	
+  if (pword(str)) {		
+    System.out.println("模式匹配！");			
+  }else{		    
+    System.out.println("模式不匹配！");
+			
+  }
+}
+public static boolean pword(String str) 
+{    
+  Pattern p = Pattern.compile("[a-zA-Z]\\w{5,11}[_|0-9|a-zA-Z]");    
+  Matcher m = p.matcher(str);	
+  if (m.matches())//尝试将从区域开头开始的输入序列与该模式匹配
+    return true; 	
+  else 
+    return false;
+ }
+
+ }

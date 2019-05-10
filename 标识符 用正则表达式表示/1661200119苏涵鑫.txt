@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class Table {
+
+	public static void main(String[] args) {
+
+		System.out.println("请输入你需要判断的字符串");
+		String r="[a-zA-Z|0-9|_|$]+[a-zA-Z|_|$|]";
+		Scanner a = new Scanner(System.in);
+		String b = a.nextLine();
+		if(b.matches(r)){
+			System.out.println(b+" 已通过");
+		}
+		else{
+			System.out.println(b+" 存在不合法标识符");
+		}
+	}
+}
