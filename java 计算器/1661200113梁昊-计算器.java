@@ -1,0 +1,134 @@
+package jsq;
+
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+
+ class Window extends JFrame implements ActionListener{
+	JTextField textShow;
+	JButton button_1;
+	JButton button_2;
+	JButton button_3;
+
+	JButton button_add;
+	JButton button_del;
+	JButton button_result;
+	
+	int number1=0;
+    int number2=0;
+    int sum=0;
+    String number="";
+    String fuhao="";
+	public Window() {
+		      init();
+		      setVisible(true);
+		      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		   }
+    void init() {
+		      setLayout(null);
+		     
+		      button_1 = new JButton("1"); 
+		      button_2 = new JButton("2"); 
+		      button_3 = new JButton("3"); 
+		  
+		      button_add = new JButton("+");
+		      button_del = new JButton("-");
+		      button_result = new JButton("=");
+		 
+		      textShow = new JTextField();
+		      textShow.setHorizontalAlignment(JTextField.RIGHT);
+		      textShow.setBounds(0, 0, 180, 30);
+		      button_1.setBounds(0,30, 60, 28);
+		      button_2.setBounds(60,30, 60, 28);
+		      button_3.setBounds(120,30, 60, 28);
+		      
+		      button_add.setBounds(0,60, 60, 28);
+		      button_del.setBounds(60,60, 60, 28);
+		      button_result.setBounds(120,60, 60, 28);
+		     
+		      add(textShow);
+		      add(button_1);
+		      add(button_2);
+		      add(button_3);
+		      add(button_add);
+		      add(button_del);
+		      add(button_result);
+		      
+		      button_1.addActionListener(this);
+		      button_add.addActionListener(this);
+		      button_result.addActionListener(this);
+		      
+		      button_2.addActionListener(this);
+		      button_3.addActionListener(this);
+		      button_del.addActionListener(this);
+		     
+    }
+    
+  
+    public void actionPerformed(ActionEvent e){
+    	if(e.getSource()==button_1){
+    		
+    		textShow.setText(number+"1");
+    		number=number+"1";
+    		
+    	}
+    	if(e.getSource()==button_2){
+    		
+    		textShow.setText(number+"2");
+    		number=number+"2";
+    	}
+    	if(e.getSource()==button_3){
+    		textShow.setText(number+"3");
+    		number=number+"3";
+    	}
+    	
+    	else if(e.getSource()==button_add){
+    		 sum+=Integer.parseInt(number);
+    		 number="";
+    		 fuhao="+";
+    	}
+    	else  if(e.getSource()==button_del){
+    		 sum+=Integer.parseInt(number);
+    	
+    		 number="";
+    		 fuhao="-";
+    	}
+    	
+    	else if(e.getSource()==button_result){
+    		
+    		if (fuhao.equals("+"))
+    		{
+    			sum=sum+Integer.parseInt(number);
+    		}
+    		if (fuhao.equals("-"))
+    		{
+    			sum=sum-Integer.parseInt(number);
+    		}
+    		String s=String.valueOf(sum);
+    		textShow.setText(s);
+    		sum=0;
+    		number=s;
+    	}
+    	
+    }
+  
+   
+}
+
+public class com {
+   public static void main(String args[]) {
+      Window win=new Window();
+      win.setBounds(100,100,195,120);
+      win.setTitle("简单计算器");
+      win.setResizable(false);//窗口不可调整大小
+      win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+     
+   }
+}
+
+
+
