@@ -1,0 +1,112 @@
+import java.awt。*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing。*;
+
+class Window extends JFrame实现ActionListener {
+	JTextField textShow;
+	JButton button_1;
+	JButton button_2;
+	JButton button_3;
+
+	JButton button_add;
+	JButton button_del;
+	JButton button_result;
+	
+	int number1 = 0;
+    int number2 = 0;
+    int number3 = 0;
+    
+	public Window（）{
+		      在里面（）;
+		      调用setVisible（真）;
+		      setDefaultCloseOperation（JFrame.EXIT_ON_CLOSE）;
+		   }
+    void init（）{
+		      setLayout的（NULL）;
+		     
+		      button_1 =新的JButton（“1”）; 
+		      button_2 = new JButton（“2”）; 
+		      button_3 =新的JButton（“3”）; 
+		  
+		      button_add = new JButton（“+”）;
+		      button_del = new JButton（“ - ”）;
+		      button_result = new JButton（“=”）;
+		 
+		      textShow = new JTextField（）;
+		      textShow.setHorizo​​ntalAlignment（JTextField.RIGHT）;
+		      textShow.setBounds（0,0,180,30）;
+		      button_1.setBounds（0,30,60,28）;
+		      button_2.setBounds（60,30,60,28）;
+		      button_3.setBounds（120,30,60,28）;
+		      
+		      button_add.setBounds（0,60,60,28）;
+		      button_del.setBounds（60,60,60,28）;
+		      button_result.setBounds（120,60,60,28）;
+		     
+		      添加（textShow）;
+		      添加（button_1）;
+		      添加（button_2）;
+		      添加（button_3）;
+		      添加（button_add）;
+		      添加（button_del）;
+		      添加（button_result）;
+		      
+		      button_1.addActionListener（本）;
+		      button_add.addActionListener（本）;
+		      button_result.addActionListener（本）;
+		      button_2.addActionListener（本）;
+		      button_3.addActionListener（本）;
+		      button_del.addActionListener（本）;
+    }
+    
+    public void actionPerformed（ActionEvent e）{
+    如果（number3的== 3）{
+    	textShow.setText（ “”）;
+    	number3的= 0;
+    }
+    	如果（e.getSource（）== button_1）{
+    		textShow.setText（ “1”）;
+    	}
+    	else if（e.getSource（）== button_add）{
+    		NUMBER1 =的Integer.parseInt（textShow.getText（））;
+    		number3的= 1;
+    		textShow.setText（ “”）;
+    	}
+    	else if（e.getSource（）== button_result）{
+    		如果（number3的== 1）{
+    		数字2 =的Integer.parseInt（textShow.getText（））;
+    		String s = String.valueOf（number1 + number2）;
+    		textShow.setText（一个或多个）;
+    		number3的= 3;
+    		}
+    		否则if（number3 == 2）{
+    			数字2 =的Integer.parseInt（textShow.getText（））;
+        		String s = String.valueOf（number1-number2）;
+        		textShow.setText（一个或多个）;
+    		}
+    	}
+    	如果（e.getSource（）== button_2）{
+    		textShow.setText（ “2”）;
+    	}
+    	如果（e.getSource（）== button_3）{
+    		textShow.setText（ “3”）;
+    	}
+    	else if（e.getSource（）== button_del）{
+    		NUMBER1 =的Integer.parseInt（textShow.getText（））;
+    		number3的= 2;
+    		textShow.setText（ “”）;
+    	}
+    }
+   
+}
+
+ class示例{
+   public static void main（String args []）{
+      Window win = new Window（）;
+      win.setBounds（100100195120）;
+      win.setTitle（ “简单计算器”）;
+      win.setResizable（假）; //窗口不可调整大小
+      win.setDefaultCloseOperation（JFrame.EXIT_ON_CLOSE）; 
+ 
