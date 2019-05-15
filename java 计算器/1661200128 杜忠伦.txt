@@ -1,0 +1,21 @@
+import java.util.Scanner;
+public class Test {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO 自动生成的方法存根
+		System.out.println("请输入你需要判断的字符或数字");
+		String regex="[a-zA-Z|0-9|_|$]+[a-zA-Z|_|$|]";
+		Scanner a = new Scanner(System.in);
+		String b = a.nextLine();
+		if(b.matches(regex)){
+			System.out.println(b+"标识符合法");
+		}
+		else{
+			System.out.println(b+"标识符不合法");
+}
+	}
+
+}
