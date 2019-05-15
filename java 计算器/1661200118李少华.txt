@@ -1,0 +1,105 @@
+package demo;
+
+import java.awt.BorderLayout;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JTextArea;
+import javax.swing.KeyStroke;
+
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
+import javafx.scene.shape.Box;
+
+ class demo1 extends JFrame{
+	 	JMenuBar menubar;
+	    JMenu menu,subMenu,menu1;
+	    JMenuItem  itemLiterature,itemCooking,item1,item2;
+	    JButton button,button2,button3,button4,button5,button6,button7,button8,button9,button10,button11,button12,button13;
+	    JTextArea text;
+
+	    public demo1(){} 
+	    public demo1(String s) {
+	       init(s);
+	       setBounds(500,500,500,500);
+	       setVisible(true);
+	       validate();
+	       setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); 
+	    }
+	    void init(String s){
+	        setTitle(s);             //设置窗口的标题   
+	        menubar=new JMenuBar(); 
+	        menu=new JMenu("文件"); 
+	        menu1=new JMenu("编辑");  
+	        itemLiterature=new JMenuItem("新建");
+	        item1=new JMenuItem("撤销");
+	        itemCooking=new JMenuItem("打开");
+	        item2=new JMenuItem("剪切");
+	        itemLiterature.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,InputEvent.CTRL_MASK)); 
+	        itemCooking.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O,InputEvent.CTRL_MASK)); 
+	        item1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Z,InputEvent.CTRL_MASK)); 
+	        item2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,InputEvent.CTRL_MASK)); 
+	        menu.add(itemLiterature);
+	        menu1.add(item1);
+	        menu1.add(item2);
+	        menu.add(itemCooking); 
+	        menubar.add(menu); 
+	        menubar.add(menu1);
+	        setJMenuBar(menubar);
+	        
+   
+	    	setLayout(null);
+	        button=new JButton(("0"));
+	        button.setBounds(0,300,200,100);
+	        add(button);
+	        button2=new JButton(".");
+	        button2.setBounds(200, 300,100, 100);
+	        add(button2);
+	        button3=new JButton("+");
+	        button3.setBounds(300, 300,100, 100);
+	        add(button3);
+	        button4=new JButton("=");
+	        button4.setBounds(400, 200, 100, 200);
+	        add(button4);
+	        button5=new JButton("1");
+	        button5.setBounds(0, 200, 100, 100);
+	        add(button5);
+	        button6=new JButton("2");
+	        button6.setBounds(100, 200, 100, 100);
+	        add(button6);
+	        button7=new JButton("3");
+	        button7.setBounds(200, 200, 100, 100);
+	        add(button7);
+	        button8=new JButton("-");
+	        button8.setBounds(300, 200, 100, 100);
+	        add(button8);
+	        button9=new JButton("4");
+	        button9.setBounds(0, 100, 100, 100);
+	        add(button9);
+	        button10=new JButton("5");
+	        button10.setBounds(100, 100, 100, 100);
+	        add(button10);
+	        button11=new JButton("6");
+	        button11.setBounds(200, 100, 100, 100);
+	        add(button11);
+	        button12=new JButton("*");
+	        button12.setBounds(300, 100, 100, 100);
+	        add(button12);
+	        button13=new JButton("1/x");
+	        button13.setBounds(400, 100, 100, 100);
+	        add(button13);
+	        validate();
+	     } 
+
+}
+ public class demo{
+	   public static void main(String args[]) {
+	      demo1 win=new demo1("计算器");
+	   }
+	}
