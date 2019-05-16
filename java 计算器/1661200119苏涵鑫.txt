@@ -1,0 +1,128 @@
+package ssss;
+
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+
+ class Window extends JFrame{
+	JTextField textShow;
+	JMenuBar menubar;
+	JMenu menu1,menu2,menu3;
+	JButton button_1,button_2,button_3,button_add,button_del,
+			button_result,button_7,button_8,button_9,button_chu,
+			button_bf,button_4,button_5,button_6,button_cheng,
+			button_x_1,button_0,button_dian;
+	int number1=0;
+    int number2=0;
+    int number3=0;
+    String s1="",s2="";
+    
+	public Window() {
+		      init();
+		      setVisible(true);
+		      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		   }
+    void init() {
+    		  menubar = new JMenuBar();
+    		  menu1 = new JMenu("查看");
+    		  menu2 = new JMenu("编辑");
+    		  menu3 = new JMenu("帮助");
+    		  menubar.add(menu1);
+    		  menubar.add(menu2);
+    		  menubar.add(menu3);
+    		  setJMenuBar(menubar);
+    		  setLayout(null);
+		      
+		      textShow = new JTextField();
+		      textShow.setHorizontalAlignment(JTextField.RIGHT);
+		      textShow.setBounds(10,10, 270, 30);
+		      add(textShow);
+		      
+		      button_7 = new JButton("7"); 
+		      button_7.setBounds(10,45, 50, 30);
+		      add(button_7);
+		      
+		      button_8 = new JButton("8");
+		      button_8.setBounds(65,45, 50, 30);
+		      add(button_8);
+		      
+		      button_9 = new JButton("9");
+		      button_9.setBounds(120,45, 50, 30);
+		      add(button_9);
+		  
+		      button_chu = new JButton("/");
+		      button_chu.setBounds(175,45, 50, 30);
+		      add(button_chu);
+		      
+		      button_bf = new JButton("%");
+		      button_bf.setBounds(230,45, 50, 30);
+		      add(button_bf);
+		      
+		      button_4 = new JButton("4");
+		      button_4.setBounds(10,80,50, 30);
+		      add(button_4);
+		      
+		      button_5 = new JButton("5");
+		      button_5.setBounds(65,80,50,30);
+		      add(button_5);
+		      
+		      button_6 = new JButton("6");
+		      button_6.setBounds(120,80,50,30);
+		      add(button_6);
+		      
+		      button_cheng = new JButton("*");
+		      button_cheng.setBounds(175,80,50,30);
+		      add(button_cheng);
+		      
+		      button_x_1 = new JButton("x");
+		      button_x_1.setBounds(230,80,50,30);
+		      add(button_x_1);
+		      
+		      button_1 = new JButton("1");
+		      button_1.setBounds(10,115,50,30);
+		      add(button_1);
+		      
+		      button_2 = new JButton("2");
+		      button_2.setBounds(65,115,50,30);
+		      add(button_2);
+		      
+		      button_3 = new JButton("3");
+		      button_3.setBounds(120,115,50,30);
+		      add(button_3);
+		      
+		      button_del = new JButton("-");
+		      button_del.setBounds(175,115,50,30);
+		      add(button_del);
+		      
+		      button_result = new JButton("=");
+		      button_result.setBounds(230,115,50,65);
+		      add(button_result);
+		      
+		      button_0 = new JButton("0");
+		      button_0.setBounds(10,150,105,30);
+		      add(button_0);
+		      
+		      button_dian = new JButton(".");
+		      button_dian.setBounds(120,150,50,30);
+		      add(button_dian);
+		      
+		      button_add = new JButton("+");
+		      button_add.setBounds(175,150,50,30);
+		      add(button_add);
+		      
+    }  
+}
+
+public class Counter {
+   public static void main(String args[]) {
+      Window win=new Window();
+      win.setBounds(100,100,300,250);
+      win.setTitle("计算器");
+      win.setResizable(false);//窗口不可调整大小
+      win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+   }
+}
